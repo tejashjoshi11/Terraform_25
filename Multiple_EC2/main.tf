@@ -1,24 +1,21 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.16"
-    }
-  }
-
-  required_version = ">= 1.2.0"
-}
-
+# provider.tf
 provider "aws" {
-  region  = "us-west-2"
-  profile = "jack.roper"
+  region  = "us-west-2"  # specify your desired region
+}
+hcl
+Copy code
+# variables.tf
+variable "aws_access_key" {
+  description = "AWS access key"
+  type        = string
 }
 
-resource "aws_instance" "example_server" {
-  ami           = "ami-04e914639d0cca79a"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "JacksBlogExample"
-  }
+variable "aws_secret_key" {
+  description = "AWS secret key"
+  type        = string
 }
+
+variable "instance_type" {
+  description = "EC2 instance type"
+  default     = "t2.micro"
+  type        = string
