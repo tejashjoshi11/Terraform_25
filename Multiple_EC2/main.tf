@@ -10,11 +10,11 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-west-2"
-  profile = "terraform"
+  profile = "default"
+  region  = "us-east-2"
 }
 
-resource "aws_instance" "example_server" {
+resource "aws_instance" "app_server" {
   ami           = "ami-0162fe8bfebb6ea16"
   instance_type = "t2.micro"
 
