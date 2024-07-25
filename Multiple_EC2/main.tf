@@ -10,15 +10,15 @@ terraform {
 }
 
 provider "aws" {
-  profile = "default"
-  region  = "us-east-2"
+  region  = "us-west-2"
+  profile = "jack.roper"
 }
 
 resource "aws_instance" "example_server" {
-  ami           = "ami-03bfe38a90ce33425"
+  ami           = "ami-04e914639d0cca79a"
   instance_type = "t2.micro"
 
   tags = {
-    Name = "Tejash Joshi"
+    Name = "JacksBlogExample"
   }
 }
